@@ -1,12 +1,12 @@
 package lesson3;
 
-public class Multiply {
+public class Multiply implements Mathematics {
 
-    public static void mult(int[] args) {
+    public void calc(int[] args, Controller c) {
 
-                int a = args[0];
-                int b = args[1];
-                int result = a*b;
-                Controller.printInStars(result);
+        int a = args[0];
+        int b = args[1];
+        int result = a*b;
+        c.printInStars(result);
     }
 }

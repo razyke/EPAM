@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Controller {
+class Controller {
 
-    public static void main(String[] args) {
+    void startCalculating() {
 
         System.out.println("Привет, я калькулятор, что будем деать ?");
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
@@ -18,7 +18,7 @@ public class Controller {
             try {
                 choice = Integer.parseInt(bf.readLine());
             } catch (Exception e) {
-
+                //Something to log
             }
             if (choice>5 || choice<=0)
                 System.out.println("Введите корректную команду.");
@@ -36,8 +36,9 @@ public class Controller {
                                 else
                                     System.out.println(err);
                             }
-                            Summation.sum(array);
+                            new Summation().calc(array,this);
                         } catch (IOException e) {
+                            //Something to log
                         }
                         break;
                 case 2 :
@@ -52,8 +53,9 @@ public class Controller {
                             else
                                 System.out.println(err);
                         }
-                        Subtraction.sub(array);
+                        new Subtraction().calc(array,this);
                     } catch (IOException e) {
+                        //Something to log
                     }
                     break;
                 case 3 :
@@ -68,8 +70,9 @@ public class Controller {
                             else
                                 System.out.println(err);
                         }
-                        Multiply.mult(array);
+                        new Multiply().calc(array,this);
                     } catch (IOException e) {
+                        //Something to log
                     }
                     break;
                 case 4 :
@@ -84,8 +87,9 @@ public class Controller {
                             else
                                 System.out.println(err);
                         }
-                        Divide.div(array);
+                        new Divide().calc(array,this);
                     } catch (IOException e) {
+                        //Something to log
                     }
                     break;
             }
@@ -95,7 +99,7 @@ public class Controller {
         }
     }
 
-    private static int[] checkValueAndReturnArray(String val){
+    private int[] checkValueAndReturnArray(String val){
         String[] vals = val.split(" ");
         int[] arr;
         try {
@@ -105,11 +109,12 @@ public class Controller {
             }
             return arr;
         }catch (Exception e){
+            //Something to log
         }
         return null;
     }
 
-    public static void printInStars(Object val){
+    void printInStars(Object val){
 
         String[] arr = String.valueOf(val).split("");
 

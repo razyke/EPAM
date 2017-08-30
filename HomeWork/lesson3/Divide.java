@@ -1,8 +1,8 @@
 package lesson3;
 
-public class Divide {
+public class Divide implements Mathematics {
 
-    public static void div(int[] args) {
+    public void calc(int[] args, Controller c) {
 
                 double a = args[0];
                 double b = args[1];
@@ -13,9 +13,9 @@ public class Divide {
                 }
 
                 if (res%1==0)
-                    Controller.printInStars((int) res);
+                    c.printInStars((int) res);
                 else
-                    Controller.printInStars(res);
+                    c.printInStars(res);
     }
 
 }
